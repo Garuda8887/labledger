@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://labledger.local/schemas/result.json",
+  "title": "Result",
+  "description": "Persisted/extracted lab result object. Never auto-confirmed from plugins.",
+  "type": "object",
+  "required": [
+    "id",
+    "document_id",
+    "profile_id",
+    "raw_test_name",
+    "raw_value",
+    "confidence",
+    "status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "document_id": { "type": "string", "format": "uuid" },
+    "profile_id": { "type": "string", "format": "uuid" },
+    "page": { "type": "integer", "minimum": 1, "default": 1 },
+    "bbox": {
+      "type": ["array", "null"],
+      "items": { "type": "number" },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "raw_test_name": { "type": "string" },
+    "raw_value": { "type": "string" },
+    "raw_unit": { "type": ["string", "null"] },
+    "raw_ref_text": { "type": ["string", "null"] },
+    "biomarker_id": { "type": ["string", "null"], "format": "uuid" },
+    "comparator": {
+      "type": "string",
+      "enum": ["=", "<", ">", "<=", ">="],
+      "default": "="
+    },
+    "value_numeric": { "type": ["number", "null"] },
+    "value_qualitative": { "type": ["string", "null"] },
+    "normalized_value": { "type": ["number", "null"] },
+    "canonical_unit": { "type": ["string", "null"] },
+    "ref_low": { "type": ["number", "null"] },
+    "ref_high": { "type": ["number", "null"] },
+    "ref_source": {
+      "type": ["string", "null"],
+      "enum": ["report", "builtin", null]
+    },
+    "flag": {
+      "type": "string",
+      "enum": ["low", "high", "normal", "unknown"],
+      "default": "unknown"
+    },
+    "collected_at": { "type": ["string", "null"], "format": "date-time" },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "confidence_reasons": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending_review", "confirmed", "rejected"],
+      "default": "pending_review"
+    },
+    "reviewed_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

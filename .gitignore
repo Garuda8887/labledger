@@ -1,0 +1,66 @@
+# Runtime data
+/data/**
+!/data/.gitkeep
+/data/samples-private/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.db
+*.sqlite
+*.sqlite3
+
+# Node
+node_modules/
+web/dist/
+web/.vite/
+*.local
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Env secrets
+.env
+.env.local
+*.pem
+
+# Logs
+*.log
+logs/
+
+# Test / eval artefacts
+docs/screenshots/.tmp/
+.playwright/
+test-results/
+web/test-results/
+web/playwright-report/
+.playwright/
+
+# --- Internal / not for publication (kept locally, never committed) ---
+/PICKUP.md
+/MORNING_REPORT.md
+/PROGRESS.md
+/DECISIONS.md
+/docs/*
+!/docs/assets/
+.session_secret

@@ -1,0 +1,33 @@
+/* Dark-first theme tokens. Light theme flips via :root:not(.dark). */
+:root,
+.dark {
+  --color-surface: 11 15 20;
+  --color-surface-raised: 18 24 33;
+  --color-surface-overlay: 24 32 44;
+  --color-ink: 236 242 248;
+  --color-ink-muted: 156 170 186;
+  --color-ink-subtle: 110 124 140;
+  --color-accent: 94 234 212;
+  --color-accent-soft: 20 60 55;
+  --color-status-normal: 52 211 153;
+  --color-status-borderline: 251 191 36;
+  --color-status-out: 248 113 113;
+  --color-status-unknown: 148 163 184;
+  --color-hairline: 42 52 66;
+}
+
+:root:not(.dark) {
+  --color-surface: 248 250 252;
+  --color-surface-raised: 255 255 255;
+  --color-surface-overlay: 241 245 249;
+  --color-ink: 15 23 42;
+  --color-ink-muted: 71 85 105;
+  --color-ink-subtle: 148 163 184;
+  --color-accent: 13 148 136;
+  --color-accent-soft: 204 251 241;
+  --color-status-normal: 5 150 105;
+  --color-status-borderline: 217 119 6;
+  --color-status-out: 220 38 38;
+  --color-status-unknown: 100 116 139;
+  --color-hairline: 226 232 240;
+}

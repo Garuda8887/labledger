@@ -1,0 +1,57 @@
+@import "./tokens.css";
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply h-full; }
+  body {
+    @apply min-h-full font-sans antialiased;
+    overflow-x: clip;
+    font-feature-settings: "tnum" 1, "ss01" 1;
+  }
+  #root { @apply min-h-full; }
+  .tabular-nums { font-variant-numeric: tabular-nums; }
+}
+
+@layer utilities {
+  .focus-ring { @apply outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-surface; }
+  .skeleton {
+    background: linear-gradient(90deg, rgb(var(--color-surface-overlay)) 0%, rgb(var(--color-surface-raised)) 50%, rgb(var(--color-surface-overlay)) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; color: black !important; }
+  .print-area {
+    border: none !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+}
